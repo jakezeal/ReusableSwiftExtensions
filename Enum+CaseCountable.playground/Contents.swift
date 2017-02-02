@@ -13,6 +13,10 @@ extension CaseCountable where RawValue == Int {
     static func cases(_ range: CountableRange<Int>) -> [Self] {
         return range.flatMap { Self(rawValue: $0) }
     }
+    
+    static var allCases: [Self] {
+        return (0..<count).flatMap { Self(rawValue: $0) }
+    }
 }
 
 enum Section: Int, CaseCountable {
@@ -28,3 +32,4 @@ class TableViewController: UITableViewController {
 }
 
 let someCases = Section.cases(0..<2)
+let allCases = Section.allCases
