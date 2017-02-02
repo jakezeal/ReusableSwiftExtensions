@@ -15,7 +15,7 @@ extension CaseCountable where RawValue == Int {
     }
     
     static var allCases: [Self] {
-        return (0..<count).flatMap { Self(rawValue: $0) }
+        return cases(0..<count)
     }
 }
 
